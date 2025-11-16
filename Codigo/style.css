@@ -126,7 +126,7 @@ nav.fixo .botao-menu{ color: #33373a; }
             rgba(30, 31, 32, 0.945), 
             rgba(138, 139, 140, 0.705)
         ),
-            url(../Codigo/imagens/Carlos_Andrea_Capa.jpg) no-repeat;
+            url(imagens/Carlos_Andrea_Capa.jpg) no-repeat;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
