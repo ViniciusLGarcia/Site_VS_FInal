@@ -218,14 +218,22 @@ section .subtitulo{
     align-items: center;
     justify-content: space-between;
 }
-.sobre .sobre-detalhes .lado-direito{ /* texto */
+.sobre .sobre-detalhes .lado-direito{ /* Imagem */
     max-width: 100%;
     height: auto;
     object-fit: cover;
     border-radius: 12px;
 }
-.sobre .sobre-detalhes .lado-esquerdo{ /* imagem */
-    width: 40%;
+
+.sobre .sobre-detalhes .lado-direito img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 12px;
+}
+
+.sobre .sobre-detalhes .lado-esquerdo{ /* Texto */
+    width: 60%;
     padding-left: 40px;
 }
 .sobre .sobre-detalhes .lado-esquerdo p{
