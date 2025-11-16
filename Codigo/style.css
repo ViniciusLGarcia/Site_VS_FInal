@@ -1,0 +1,530 @@
+/* Importa as fontes 'Poppins' e 'Ubuntu' do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display+swap');
+
+/*
+    RELAÇÃO ENTRE ARQUIVOS:
+    1. Este CSS estiliza os elementos do 'index.html'.
+    2. Ele usa as classes (ex: .barra-navegacao) e IDs (ex: #inicio) definidas no HTML.
+    3. Ele também estiliza classes que são ADICIONADAS pelo 'script.js' (ex: .fixo e .aberto).
+*/
+
+/* --- Configurações Globais e Barra de Rolagem --- */
+
+body{
+    background-color: #000000;
+}
+
+/* Reseta margens e paddings de todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+/* Ajusta a rolagem para links âncora (para não cobrir o título) */
+html {
+    scroll-padding-top: 90px; 
+}
+/* Estilização da barra de rolagem (Chrome/Edge/Safari) */
+::-webkit-scrollbar{ width: 10px; }
+::-webkit-scrollbar-track{ background: #f1f1f1; }
+::-webkit-scrollbar-thumb{ background: #f8bc30d2; border-radius: 12px; }
+::-webkit-scrollbar-thumb:hover{ background: #ffffff; }
+
+/* --- Bloco: Barra de Navegação --- */
+
+/* Estilo principal do <nav> */
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 20px 0;
+    font-family: 'Ubuntu', sans-serif;
+    z-index: 1000;
+    transition: all 0.3s ease; /* Adiciona transição suave */
+}
+/* Estilo do menu QUANDO a classe '.fixo' é adicionada via JS */
+nav.fixo{
+    padding: 13px 0;
+    background: #f8bc30d2;
+}
+/* Container interno do menu */
+nav .barra-navegacao{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .barra-navegacao .logo {
+    display: flex;
+    align-items: center; 
+}
+
+/* Logo (imagem e texto) */
+.logo-imagem {
+    height: 100px;
+    width: auto;
+    margin-right: 15px;
+}
+nav .barra-navegacao .logo a{
+    font-size: 30px;
+    font-weight: 500;
+    color:#ffffff;
+}
+nav.fixo .barra-navegacao .logo a{
+    color: #ffffff;
+}
+/* Lista de links do menu (desktop) */
+nav .barra-navegacao .menu-lista{
+    display: flex;
+}
+nav .barra-navegacao .menu-lista li{
+    margin: 0 8px;
+    list-style: none;
+}
+.barra-navegacao .menu-lista li a{
+    font-size: 18px;
+    font-size: 500;
+    color: #ffffff;
+}
+nav.fixo .barra-navegacao .menu-lista li a{
+    color: #ffffff;
+}
+/* Ícones de mídia social (desktop) */
+.barra-navegacao .icones-midia a{
+    font-size: 18px;
+    margin: 0 6px;
+    color: #ffffff;
+}
+nav.fixo .barra-navegacao .icones-midia a{
+    color: #33373a;
+}
+/* Botões de Abrir/Fechar Menu Mobile (escondidos por padrão) */
+nav .botao-menu,
+.barra-navegacao .botao-fechar{
+    position: absolute;
+    color: #33373a;
+    font-size: 20px;
+    right: 30px;
+    top: 20px;
+    cursor: pointer;
+    display: none;
+}
+nav .botao-menu{ color: #f8bb30; }
+nav.fixo .botao-menu{ color: #33373a; }
+
+/* --- Bloco: Seção Início (Home) --- */
+
+.inicio{
+    height: 100vh;
+    width: 100%;
+    background:
+        linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.959),
+            rgba(30, 31, 32, 0.945), 
+            rgba(138, 139, 140, 0.705)
+        ),
+            url(../Codigo/imagens/Carlos_Andrea_Capa.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Ubuntu', sans-serif;
+}
+/* Conteúdo centralizado na seção Início */
+.inicio .inicio-conteudo{
+    height: 100%;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/* Textos do banner */
+.inicio .texto-banner .texto-um{ font-size: 25px; color: #ffffff; }
+.inicio .texto-banner .texto-dois{ font-size: 75px; font-weight: 600; margin-left: -3px; color: #ffffff; }
+.inicio .texto-banner .texto-tres{ font-size: 40px; color: #ffffff; }
+
+/* --- Bloco: Estilos Padrão de Seção --- */
+
+/* Botão Padrão (usado em várias seções) */
+.botao-padrao{
+    margin: 14px 0;
+}              
+.botao-padrao button{
+    outline: none;
+    color: #33373a;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 8px 16px;
+    background:#f8bb30;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: all 0.4s ease;
+}
+.botao-padrao button:hover{
+    color:#f8bb30;
+    background-color: #33373a;
+    border-color: #f8bb30;
+}
+/* Fundo da seção 'Sobre' */
+.sobre {
+    padding-top: 40px;
+    background: rgba(0, 0, 0, 0.910);
+}
+/* Container de conteúdo (usado em 'Sobre', 'Especializações', 'Serviços') */
+section .conteudo-secao{
+    width: 80%;
+    margin: 40px auto;
+    font-family: 'Poppins' , sans-serif;
+}
+/* Título padrão de seção (usado em 'Sobre', 'Especializações', 'Serviços', 'Contato') */
+section .titulo-secao{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+section .titulo-secao span {
+    font-size: 30px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    position: relative;
+    color: #ffffff;
+}
+/* Linha amarela embaixo do título */
+section .titulo-secao span::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    height: 3px;
+    width: 70%;
+    background: #f8bb30;
+    transform: translateX(-50%);
+}
+/* Subtítulo padrão (usado em 'Sobre', 'Especializações', 'Serviços') */
+section .subtitulo{
+    font-size: 25px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* --- Bloco: Seção Sobre --- */
+
+.sobre .sobre-detalhes{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sobre .sobre-detalhes .lado-direito{ /* texto */
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.sobre .sobre-detalhes .lado-esquerdo{ /* imagem */
+    width: 40%;
+    padding-left: 40px;
+}
+.sobre .sobre-detalhes .lado-esquerdo p{
+    color: #ffffff;
+    text-align: justify;
+}
+
+/* --- Bloco: Seção Serviços --- */
+
+.servicos .caixas-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Permite que os cards quebrem a linha */
+}
+.servicos .caixas-container .caixa-servico .subtitulo {
+    color: #33373a; /* Subtítulo escuro (diferente do padrão) */
+}
+/* Estilo do Card de Serviço */
+.servicos .caixas-container .caixa-servico{
+    width: calc(100% / 3 - 20px); /* 3 cards por linha (com espaço) */
+    margin: 20px 10px;
+    border-radius: 12px;
+    text-align: center;
+    padding: 20px 10px;
+    transition: all 0.4s ease;
+    color: #33373a;
+    background-color: #f1d98f;
+}
+.servicos .caixas-container .caixa-servico:hover{
+    background: #f8bb30;
+}
+/* Ícone do Card de Serviço */
+.servicos .caixas-container .caixa-servico .icone{
+    height: 50px;
+    width: 50px;
+    color: #33373a;
+    background-color: #f8bb30;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    margin: 0 auto 10px auto;
+    transition: all 0.4s ease;
+}
+.servicos .caixas-container .caixa-servico:hover .icone{
+    background: #33373a;
+    color: #f1d98f;
+}
+.servicos .caixas-container .caixa-servico:hover .subtitulo{
+    color:#33373a;
+}
+
+/* --- Bloco: Seção Contato --- */
+
+.contato{
+    background: #8a8b8c;
+    padding: 20px;
+}
+.contato .texto-contato{
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
+
+/* --- Bloco: Botão de Subir --- */
+
+.botao-subir i{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px  12px;
+    background-color: #f1d98f;
+    color: #33373a;
+    font-size: 18px;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Bloco: Seção Especializações (Timeline) --- */
+
+.especializacoes{
+    background: #8a8b8c;
+}
+.especializacoes .conteudo-secao{
+    padding: 40px 0;
+}
+.especializacoes .especializacoes-detalhes{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* Bloco de texto "Meus Valores" */
+.especializacoes .especializacoes-detalhes .lado-esquerdo{
+    background: rgba(0, 0, 0, 0.7);
+    padding: 18px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 45%;
+    margin-right: 5%;
+}
+.especializacoes-detalhes .lado-esquerdo p{
+    color: #f1d98f;
+    text-align: justify;
+}
+/* Container da Timeline */
+.especializacoes .caixas-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+/* Linha vertical */
+.especializacoes .linha-tempo {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #f8bb30, #f1d98f);
+    z-index: 1;
+}
+/* Item da Timeline */
+.especializacoes .caixa-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    padding: 0 0 0 60px; /* Espaço para o marcador */
+    width: 100%;
+    transition: all 0.3s ease;
+}
+.especializacoes .caixa-item:hover {
+    transform: translateX(10px);
+    z-index: 2;
+}
+/* Marcador (círculo) da Timeline */
+.especializacoes .marcador-tempo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background: #f8bb30;
+    border: 3px solid #33373a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2; /* Sobrepõe a linha */
+    color: #33373a;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+.especializacoes .caixa-item:hover .marcador-tempo {
+    background: #33373a;
+    color: #f8bb30;
+    border-color: #f8bb30;
+}
+/* Conteúdo (texto) da Timeline */
+.especializacoes .conteudo-tempo {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+.especializacoes .conteudo-tempo .data-numero {
+    font-size: 18px;
+    font-weight: 600;
+    color: #f8bb30;
+    margin-bottom: 5px;
+}
+.especializacoes .conteudo-tempo .subtitulo {
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+.especializacoes .conteudo-tempo p {
+    font-size: 14px;
+    color: #f1d98f;
+    margin: 0;
+    line-height: 1.4;
+}
+
+
+/* --- Bloco: Media Queries (Design Responsivo) --- */
+
+/* Telas médias (ajusta larguras) */
+@media (max-width: 1190px){
+    .sobre .conteudo-secao,
+    .especializacoes .conteudo-secao,
+    .servicos .conteudo-secao {
+        width: 90%;
+    }
+}
+
+/* Tablets (empilha seções e muda colunas) */
+@media (max-width: 1090px){
+    /* Seção 'Sobre': empilha imagem e texto */
+    .sobre .sobre-detalhes{
+        flex-direction: column;
+    }
+    .sobre .sobre-detalhes .lado-direito{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .sobre .sobre-detalhes .lado-esquerdo{
+        width: 90%;
+        margin: 40px 0;
+    }
+    /* Seção 'Serviços': 2 cards por linha */
+    .servicos .caixas-container .caixa-servico{
+        width: calc(100% / 2 - 20px);
+    }
+    .contato .texto-contato{
+        width: 90%;
+    }
+}
+
+/* Telas móveis (mostra menu mobile, empilha tudo) */
+@media (max-width: 750px) {
+    /* --- Estilos do Menu Mobile --- */
+    nav .barra-navegacao .menu-lista{
+        position: absolute;
+        left: -100%; /* Começa escondido */
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        max-width: 400px;
+        background: #f1d98f;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 60px;
+        transition: all 0.5s ease;
+    }
+    /* Estilo QUANDO a classe '.aberto' é adicionada via JS */
+    nav .barra-navegacao.aberto .menu-lista{
+        left: 0; /* Mostra o menu */
+    }
+    /* Links dentro do menu mobile */
+    .barra-navegacao .menu-lista li a{
+        display: block;
+        margin: 10px 0;
+        font-size: 23px;
+        color: #33373a
+    }
+    .barra-navegacao .icones-midia a{
+        display: none; /* Esconde ícones do topo */
+    }
+    /* Mostra os botões de abrir/fechar */
+    nav .botao-menu,
+    .barra-navegacao .botao-fechar{
+        display: block;
+    }
+    nav .botao-menu{
+        color:#ffffff; /* Botão 'hambúrguer' branco */
+    }
+
+    /* --- Ajustes de Layout Mobile --- */
+    
+    /* Fontes menores na Home */
+    .inicio .texto-banner .texto-dois{ font-size: 65px; }
+    .inicio .texto-banner .texto-tres{ font-size: 35px; }
+
+    /* Seção 'Especializações': empilha texto e timeline */
+    .especializacoes .especializacoes-detalhes{
+        flex-direction: column;
+    }
+    .especializacoes .especializacoes-detalhes .lado-esquerdo,
+    .especializacoes .especializacoes-detalhes .caixas-container {
+        width: 90%;
+        margin: 20px 0;
+    }
+    /* Simplifica a timeline para uma lista */
+    .especializacoes .linha-tempo { display: none; }
+    .especializacoes .caixa-item {
+        padding-left: 0;
+        flex-direction: column;
+        text-align: center;
+    }
+    .especializacoes .marcador-tempo {
+        position: static;
+        margin: 0 auto 10px;
+    }
+    .especializacoes .conteudo-tempo { text-align: left; }
+
+    /* Seção 'Serviços': 1 card por linha */
+    .servicos .caixas-container .caixa-servico{
+        width: 100%;
+    }
+    .contato .texto-contato{
+        width: 100%;
+    }
+}
+
+/* Telas bem pequenas (ajuste fino de fonte) */
+@media (max-width: 510px){
+    .inicio .texto-banner .texto-dois{ font-size: 55px; }
+    .inicio .texto-banner .texto-tres{ font-size: 33px; }
+}
